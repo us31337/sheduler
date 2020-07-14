@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div th:replace="fragments/head.html :: noAuthHeader"></div>
+    <div class="text-center" style="padding-top: 100px">
+        <form class="form-signin" th:action="@{/register}" method="post">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt=""
+                 width="72"
+                 height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <div class="invalid-feedback" th:switch="${errorCode}">
+                <span th:case="1">Данный логин уже используется</span>
+                <span th:case="2">Пароли не совпадают</span>
+                <span th:case="*"></span>
+            </div>
+            <label for="inputLogin" class="sr-only">Login</label>
+            <input type="text" id="inputLogin" class="form-control" placeholder="Login" name="username" required
+                   autofocus>
+            <label for="inputPassword" class="sr-only">Пароль</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+            <label for="checkPassword" class="sr-only">Проверка пароля</label>
+            <input type="password" id="checkPassword" class="form-control" placeholder="Password confirmation" name="passwordconfirm" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Регистрация</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

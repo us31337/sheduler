@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+
+</head>
+
+<body>
+<form th:fragment="newEventForm" th:object="${event}" method="post">
+    <div class="form-group">
+        <label for="eventName">Event name</label>
+        <input type="text" class="form-control" id="eventName" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="eventDescription">Example textarea</label>
+        <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="eventStart">Event name</label>
+        <input type="datetime" class="form-control" id="eventStart" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="eventEnd">Event name</label>
+        <input type="datetime" class="form-control" id="eventEnd" placeholder="Enter email">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+
+</html>
